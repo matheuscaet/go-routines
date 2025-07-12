@@ -22,7 +22,8 @@ type Order struct {
 func main() {
 	wg := sync.WaitGroup{}
 	wg.Add(3)
-	orders := generateOrders(20)
+	// generate 50-100 orders
+	orders := generateOrders(rand.Intn(50) + 50)
 	fmt.Println("Orders generated:", len(orders))
 
 	go processOrders(orders, &wg)
